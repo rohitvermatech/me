@@ -1,0 +1,1 @@
+function dynamicContent(){var e=document.getElementById("changeText"),r=e.innerHTML;e.innerHTML="programmer"==r?"developer":"developer"==r?"creator":"creator"==r?"maker":"maker"==r?"learner":"programmer"}setInterval(function(){dynamicContent()},3e3);
