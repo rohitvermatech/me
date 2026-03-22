@@ -644,72 +644,19 @@ img {
 }
 
 /* === About === */
-.about-grid {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 64px;
-    align-items: start;
-    margin-bottom: 80px;
+.about-text-full {
+    max-width: 800px;
+    margin: 0 auto 80px;
 }
 
-.about-image-wrapper {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-}
-
-.about-image-wrapper img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-}
-
-.about-image-border {
-    position: absolute;
-    inset: -3px;
-    border-radius: var(--radius-lg);
-    padding: 3px;
-    background: var(--gradient);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: 1;
-    pointer-events: none;
-    animation: borderRotate 4s linear infinite;
-}
-
-@keyframes borderRotate {
-    0% {
-        background: linear-gradient(0deg, #00f0ff, #7b2fff);
-    }
-
-    25% {
-        background: linear-gradient(90deg, #00f0ff, #7b2fff);
-    }
-
-    50% {
-        background: linear-gradient(180deg, #00f0ff, #7b2fff);
-    }
-
-    75% {
-        background: linear-gradient(270deg, #00f0ff, #7b2fff);
-    }
-
-    100% {
-        background: linear-gradient(360deg, #00f0ff, #7b2fff);
-    }
-}
-
-.about-text p {
+.about-text-full p {
     color: var(--text-secondary);
     margin-bottom: 20px;
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
 }
 
-.about-text strong {
+.about-text-full strong {
     color: var(--accent);
     -webkit-text-fill-color: initial;
 }
@@ -1394,11 +1341,6 @@ img {
 
 /* === Responsive === */
 @media (max-width: 1024px) {
-    .about-grid {
-        grid-template-columns: 250px 1fr;
-        gap: 40px;
-    }
-
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1459,16 +1401,6 @@ img {
 
     .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .about-image {
-        max-width: 250px;
-        margin: 0 auto;
     }
 
     .stats-grid {
