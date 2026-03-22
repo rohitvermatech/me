@@ -200,12 +200,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Typing Effect ──────────────────────────────────────
     const typedElement = document.getElementById('typed');
     const roles = [
-        'Backend Dev',
+        'Backend Engineer',
         'AI Automation Builder',
-        'Full-Stack Problem Solver',
+        'Full-Stack Developer',
         'Vibe Coder',
-        'Chatbot Architect',
-        'DevOps Handler'
+        'API Integration Specialist',
+        'Agentic AI Builder',
+        'RPA & Workflow Architect',
+        'System Connector'
     ];
     let roleIndex = 0;
     let charIndex = 0;
