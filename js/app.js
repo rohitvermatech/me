@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hover state
         const hoverTargets = document.querySelectorAll(
-            'a, button, .service-card, .stack-tag, .collab-card, .stat-card, .timeline-card'
+            'a, button, .service-card, .stack-tag, .audience-card, .stat-card, .process-step'
         );
         hoverTargets.forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
@@ -200,14 +200,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Typing Effect ──────────────────────────────────────
     const typedElement = document.getElementById('typed');
     const roles = [
-        'Backend Engineer',
+        'Solutions Architect',
         'AI Automation Builder',
-        'Full-Stack Developer',
-        'Vibe Coder',
-        'API Integration Specialist',
+        'Full Stack Developer',
+        'API Integration Engineer',
         'Agentic AI Builder',
-        'RPA & Workflow Architect',
-        'System Connector'
+        'Workflow Architect',
+        'Technical Consultant',
+        'System Designer'
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -304,23 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
 
     counters.forEach(c => counterObserver.observe(c));
-
-
-    // ─── Timeline Line Animation ────────────────────────────
-    const timeline = document.querySelector('.timeline');
-
-    if (timeline) {
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    timeline.classList.add('animated');
-                    timelineObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        timelineObserver.observe(timeline);
-    }
 
 
     // ─── 3D Tilt Cards ──────────────────────────────────────
