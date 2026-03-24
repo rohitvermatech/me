@@ -902,213 +902,109 @@ img {
     box-shadow: 0 4px 15px rgba(0, 240, 255, 0.1);
 }
 
-/* === Who I Work With / Audience === */
-.audience {
+/* === Timeline === */
+.experience {
     background: var(--bg-secondary);
 }
 
-.audience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.audience-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    transition: var(--transition);
+.timeline {
     position: relative;
-    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 2px;
 }
 
-.audience-card::before {
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+}
+
+.timeline-line::after {
     content: '';
     position: absolute;
-    inset: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0%;
     background: var(--gradient);
-    opacity: 0;
-    transition: opacity 0.4s;
-    z-index: 0;
+    transition: height 1.5s ease;
 }
 
-.audience-card:hover {
-    border-color: rgba(0, 240, 255, 0.2);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+.timeline.animated .timeline-line::after {
+    height: 100%;
 }
 
-.audience-card:hover::before {
-    opacity: 0.03;
-}
-
-.audience-card > * {
+.timeline-item {
     position: relative;
+    padding-left: 48px;
+    margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent);
     z-index: 1;
+    transition: var(--transition);
 }
 
-.audience-icon {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.timeline-item:hover .timeline-dot {
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
-.audience-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.audience-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 16px;
-}
-
-.audience-examples {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-}
-
-.audience-examples strong {
-    color: var(--text-secondary);
-    display: block;
-    margin-bottom: 4px;
-}
-
-/* === How It Works / Process === */
-.process-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-.process-step {
-    text-align: center;
-    padding: 40px 24px;
-    position: relative;
-}
-
-.process-number {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    font-weight: 700;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 20px;
-    opacity: 0.6;
-}
-
-.process-step:hover .process-number {
-    opacity: 1;
-}
-
-.process-step h3 {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 600;
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
     margin-bottom: 12px;
 }
 
-.process-step p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.7;
+.timeline-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: var(--transition);
 }
 
-/* === Async AI Section === */
-.asyncai-section {
-    background: var(--bg-secondary);
+.timeline-card:hover {
+    border-color: rgba(0, 240, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
-.asyncai-card {
-    max-width: 800px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.04), rgba(123, 47, 255, 0.04));
-    border: 1px solid rgba(0, 240, 255, 0.15);
-    border-radius: var(--radius-lg);
-    padding: 56px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.asyncai-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(0, 240, 255, 0.03), transparent, rgba(123, 47, 255, 0.03), transparent);
-    animation: rotateBg 10s linear infinite;
-    z-index: 0;
-}
-
-@keyframes rotateBg {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.asyncai-card > * {
-    position: relative;
-    z-index: 1;
-}
-
-.freelance-badge {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    padding: 6px 20px;
-    background: rgba(0, 240, 255, 0.08);
-    border: 1px solid rgba(0, 240, 255, 0.2);
-    border-radius: 100px;
-    color: var(--accent);
-    margin-bottom: 24px;
-}
-
-.asyncai-card h2 {
+.timeline-card h3 {
     font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 16px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-.asyncai-tagline {
-    font-size: 1.1rem;
-    color: var(--text-primary);
+.timeline-card h4 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
     font-weight: 500;
-    margin-bottom: 20px;
-    font-style: italic;
+    margin-bottom: 12px;
 }
 
-.asyncai-card p {
+.timeline-card p {
     color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 20px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.asyncai-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 32px;
+    font-size: 0.95rem;
+    line-height: 1.7;
 }
 
 /* === Contact === */
@@ -1379,14 +1275,6 @@ img {
         grid-template-columns: 1fr;
     }
 
-    .audience-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .contact-grid {
         grid-template-columns: 1fr;
     }
@@ -1421,10 +1309,6 @@ img {
         grid-template-columns: 1fr;
     }
 
-    .process-grid {
-        grid-template-columns: 1fr;
-    }
-
     .hero-cta {
         flex-direction: column;
         align-items: center;
@@ -1433,13 +1317,5 @@ img {
     .btn {
         width: 100%;
         justify-content: center;
-    }
-
-    .asyncai-card {
-        padding: 32px 20px;
-    }
-
-    .asyncai-actions {
-        flex-direction: column;
     }
 }

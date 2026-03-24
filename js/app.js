@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hover state
         const hoverTargets = document.querySelectorAll(
-            'a, button, .service-card, .stack-tag, .audience-card, .stat-card, .process-step'
+            'a, button, .service-card, .stack-tag, .stat-card, .timeline-card'
         );
         hoverTargets.forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
@@ -201,12 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const typedElement = document.getElementById('typed');
     const roles = [
         'Solutions Architect',
-        'AI Automation Builder',
+        'AI Builder',
         'Full Stack Developer',
         'API Integration Engineer',
-        'Agentic AI Builder',
-        'Workflow Architect',
-        'Technical Consultant',
+        'Automation Architect',
         'System Designer'
     ];
     let roleIndex = 0;
@@ -304,6 +302,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
 
     counters.forEach(c => counterObserver.observe(c));
+
+
+    // ─── Timeline Animation ─────────────────────────────────
+    const timelines = document.querySelectorAll('.timeline');
+    if (timelines.length) {
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        timelines.forEach(tl => timelineObserver.observe(tl));
+    }
 
 
     // ─── 3D Tilt Cards ──────────────────────────────────────
